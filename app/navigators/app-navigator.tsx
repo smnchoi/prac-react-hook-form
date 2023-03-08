@@ -11,6 +11,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { WelcomeScreen, DemoScreen, DemoListScreen } from "../screens"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
 import NormalFormScreen from "../screens/normal-form-screen/normal-form-screen"
+import HookFormScreen from "../screens/hook-form-screen/hook-form-screen"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -26,7 +27,7 @@ import NormalFormScreen from "../screens/normal-form-screen/normal-form-screen"
  */
 export type NavigatorParamList = {
   "normal-form-screen": undefined
-  // 🔥 Your screens go here
+  "hook-form-screen": undefined
 }
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
@@ -41,7 +42,7 @@ const AppStack = () => {
       initialRouteName="normal-form-screen"
     >
       <Stack.Screen name="normal-form-screen" component={NormalFormScreen} />
-      {/** 🔥 Your screens go here */}
+      <Stack.Screen name="hook-form-screen" component={HookFormScreen} />
     </Stack.Navigator>
   )
 }
