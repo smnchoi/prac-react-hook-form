@@ -45,7 +45,7 @@ const AppStack = () => {
     >
       <Stack.Screen name="normal-form-screen" component={NormalFormScreen} />
       <Stack.Screen name="hook-form-screen" component={HookFormScreen} />
-      <Stack.Screen name="bottom-sheet-screen" component={BottomSheetScreen} />
+      {/* <Stack.Screen name="bottom-sheet-screen" component={BottomSheetScreen} /> */}
     </Stack.Navigator>
   )
 }

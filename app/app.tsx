@@ -19,7 +19,7 @@ import { AppNavigator, useNavigationPersistence } from "./navigators"
 import { RootStore, RootStoreProvider, setupRootStore } from "./models"
 import { ToggleStorybook } from "../storybook/toggle-storybook"
 import { ErrorBoundary } from "./screens/error/error-boundary"
-import { GestureHandlerRootView } from "react-native-gesture-handler"
+// import { GestureHandlerRootView } from "react-native-gesture-handler"
 
 // This puts screens in a native ViewController or Activity. If you want fully native
 // stack navigation, use `createNativeStackNavigator` in place of `createStackNavigator`:
@@ -39,12 +39,12 @@ function App() {
   } = useNavigationPersistence(storage, NAVIGATION_PERSISTENCE_KEY)
 
   // Kick off initial async loading actions, like loading fonts and RootStore
-  useEffect(() => {
-    ;(async () => {
-      await initFonts() // expo
-      setupRootStore().then(setRootStore)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     await initFonts() // expo
+  //     setupRootStore().then(setRootStore)
+  //   })()
+  // }, [])
 
   // Before we show the app, we have to wait for our state to be ready.
   // In the meantime, don't render anything. This will be the background
@@ -52,7 +52,7 @@ function App() {
   // In iOS: application:didFinishLaunchingWithOptions:
   // In Android: https://stackoverflow.com/a/45838109/204044
   // You can replace with your own loading component if you wish.
-  if (!rootStore || !isNavigationStateRestored) return null
+  // if (!rootStore || !isNavigationStateRestored) return null
 
   // otherwise, we're ready to render the app
   return (
@@ -61,12 +61,12 @@ function App() {
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <ErrorBoundary catchErrors={"always"}>
             {/* //* YOU MUST ADD THIS. ref: https://docs.swmansion.com/react-native-gesture-handler/docs/installation/ */}
-            <GestureHandlerRootView style={{ flex: 1 }}>
-              <AppNavigator
-                initialState={initialNavigationState}
-                onStateChange={onNavigationStateChange}
-              />
-            </GestureHandlerRootView>
+            {/* <GestureHandlerRootView style={{ flex: 1 }}> */}
+            <AppNavigator
+            // initialState={initialNavigationState}
+            // onStateChange={onNavigationStateChange}
+            />
+            {/* </GestureHandlerRootView> */}
           </ErrorBoundary>
         </SafeAreaProvider>
       </RootStoreProvider>
